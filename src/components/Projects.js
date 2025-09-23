@@ -66,12 +66,12 @@ const ProjectPreview = ({ project }) => {
             <p>{currentProject.description}</p>
             <div className="project-links">
                 {currentProject.github && (
-                    <a href={currentProject.github} target="_blank" rel="noopener noreferrer">
+                    <a className="aButton" href={currentProject.github} target="_blank" rel="noopener noreferrer">
                         GitHub
                     </a>
                 )}
                 {currentProject.demo && (
-                    <a href={currentProject.demo} target="_blank" rel="noopener noreferrer">
+                    <a className="aButton" href={currentProject.demo} target="_blank" rel="noopener noreferrer">
                         Demo
                     </a>
                 )}

@@ -74,7 +74,7 @@
     margin-top: 35px;
 }
 
-a {
+.aButton {
     padding: 8px;
     color: var(--black);
     background-color: var(--white);
@@ -83,7 +83,7 @@ a {
     margin-right: 12px;
 }
 
-a:hover {
+.aButton:hover {
     color: var(--black);
     box-shadow: 0 0 3px 3px var(--white);
 }
