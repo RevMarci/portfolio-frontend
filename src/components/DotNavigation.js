@@ -22,7 +22,6 @@ const DotNavigation = () => {
             });
 
             setActiveIndex(current);
-            console.log('scrolling', current, scrollPos);
         };
 
         wrapper.addEventListener('scroll', handleScroll);
