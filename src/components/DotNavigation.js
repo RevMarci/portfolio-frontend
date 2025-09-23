@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import '../styles/DotNavigation.css';
 
 const DotNavigation = () => {
-    const sections = ['Intro', 'Experience', 'Projects', 'Studies', 'AIChat', 'Contact'];
+    const sections = useMemo(() => ['Intro', 'Experience', 'Projects', 'Studies', 'AIChat', 'Contact'], []);
+
     const [activeIndex, setActiveIndex] = useState(0);
 
     useEffect(() => {
+        const wrapper = document.querySelector('.app-wrapper');
+        if (!wrapper) return;
+
         const handleScroll = () => {
-            const scrollPos = window.scrollY + window.innerHeight / 2; // középre nézünk
+            const scrollPos = wrapper.scrollTop + wrapper.clientHeight / 2;
 
             let current = 0;
             sections.forEach((id, i) => {
@@ -18,10 +22,11 @@ const DotNavigation = () => {
             });
 
             setActiveIndex(current);
+            console.log('scrolling', current, scrollPos);
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        wrapper.addEventListener('scroll', handleScroll);
+        return () => wrapper.removeEventListener('scroll', handleScroll);
     }, [sections]);
 
     const scrollToSection = (index) => {

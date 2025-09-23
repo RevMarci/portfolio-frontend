@@ -29,6 +29,8 @@ button:hover {
     overflow-y: scroll;
     height: 100vh;
     scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .app-wrapper > * {

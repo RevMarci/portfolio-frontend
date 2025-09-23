@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import '../styles/AIChat.css';
 
 const AIChat = ({ id }) => {
@@ -31,12 +31,6 @@ const AIChat = ({ id }) => {
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') sendMessage();
     };
-
-    useEffect(() => {
-        if (chatEndRef.current) {
-            chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, [messages]);
 
     return (
         <div id={id} className="section aichat">
