@@ -1,6 +1,8 @@
 import './style.css'
 import * as THREE from 'three';
 import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
+import { Booster } from './components/Booster';
+import { Ship } from './components/Ship';
 
 let WIDTH: number;
 let HEIGHT: number;
@@ -40,6 +42,18 @@ function init(): void {
     camera = new THREE.PerspectiveCamera(75, aspectRatio, 0.1, 1000);
     camera.position.set(5, 10, 20);
     camera.lookAt(scene.position.x, scene.position.y, scene.position.z);
+
+	// ambient light
+	const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+	scene.add(ambientLight);
+
+	const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
+	directionalLight.position.set(10, 20, 15);
+	scene.add(directionalLight);
+
+	const booster = new Booster({ scene });
+	const ship = new Ship({ scene });
+	ship.mesh.position.set(0, 51.1, 0);
 
     // Handle window resize events
     window.addEventListener('resize', handleWindowResize, false);
