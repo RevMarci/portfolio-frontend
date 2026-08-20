@@ -1,11 +1,11 @@
 import React from 'react';
 import './styles/App.css';
-import Intro from './components/Intro';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
-import Studies from './components/Studies';
-import AIChat from './components/AIChat';
-import Contact from './components/Contact';
+import Intro from './pages/Intro';
+import Experience from './pages/Experience';
+import Projects from './pages/Projects';
+import Studies from './pages/Studies';
+import AIChat from './pages/AIChat';
+import Contact from './pages/Contact';
 import DotNavigation from './components/DotNavigation';
 import { experiences } from './assets/experiences';
 import { projects } from './assets/projects';
