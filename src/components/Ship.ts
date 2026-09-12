@@ -3,6 +3,7 @@ import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
 export class Ship {
     mesh: THREE.Mesh;
+    height: number = 51.1;
 
     constructor(
         {
@@ -12,6 +13,7 @@ export class Ship {
         })
     {
         this.mesh = this.create();
+
         scene.add(this.mesh);
     }
 
@@ -51,6 +53,9 @@ export class Ship {
         });
         
         const mergedMesh = new THREE.Mesh(mergedGeometry, material);
+
+        mergedMesh.rotation.reorder('YXZ');
+        
         return mergedMesh;
     }
 

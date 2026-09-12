@@ -4,6 +4,7 @@ import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
 import { Booster } from './components/Booster';
 import { Ship } from './components/Ship';
 import { Earth } from './components/Earth';
+import { ScrollAnimator } from './components/ScrollAnimator';
 
 let WIDTH: number;
 let HEIGHT: number;
@@ -41,8 +42,7 @@ function init(): void {
 
     // Create the camera
     camera = new THREE.PerspectiveCamera(75, aspectRatio, 0.1, 1000);
-    camera.position.set(5, 10, 20);
-    camera.lookAt(scene.position.x, scene.position.y, scene.position.z);
+    camera.position.set(70, 20, 100);
 
 	// ambient light
 	const ambientLight = new THREE.AmbientLight(0xffffff, 1);
@@ -52,19 +52,22 @@ function init(): void {
 	directionalLight.position.set(10, 20, 15);
 	scene.add(directionalLight);
 
+    // Elements
 	const booster = new Booster({ scene });
 	const ship = new Ship({ scene });
 	ship.mesh.position.set(0, 51.1, 0);
 
     const earth = new Earth(scene);
 
+    const scrollAnimator = new ScrollAnimator(camera, booster, ship);
+
     // Handle window resize events
     window.addEventListener('resize', handleWindowResize, false);
 
     // Camera controls
-    controls = new TrackballControls(camera, renderer.domElement);
-    controls.rotateSpeed = 5.0;
-    controls.panSpeed = 1.0;
+    //controls = new TrackballControls(camera, renderer.domElement);
+    //controls.rotateSpeed = 5.0;
+    //controls.panSpeed = 1.0;
 }
 
 function handleWindowResize(): void {
@@ -88,9 +91,10 @@ function render(): void {
 function animate(): void {
     // Draw the next frame
     // Max 60fps
+
     requestAnimationFrame(animate);
     
-    controls.update();
+    //controls.update();
     
     render();
 }

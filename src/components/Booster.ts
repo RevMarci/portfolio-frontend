@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
 export class Booster {
+    mesh: THREE.Mesh;
+    
     constructor(
         {
             scene,
@@ -9,7 +11,8 @@ export class Booster {
             scene: THREE.Scene
         })
     {
-        scene.add(this.create());
+        this.mesh = this.create();
+        scene.add(this.mesh);
     }
 
     create(): THREE.Mesh {
@@ -47,6 +50,9 @@ export class Booster {
         });
 
         const mergedMesh = new THREE.Mesh(mergedGeometry, material);
+
+        mergedMesh.rotation.reorder('YXZ');
+        
         return mergedMesh;
     }
 
