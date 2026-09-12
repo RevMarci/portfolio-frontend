@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
 import { Booster } from './components/Booster';
 import { Ship } from './components/Ship';
+import { Earth } from './components/Earth';
 
 let WIDTH: number;
 let HEIGHT: number;
@@ -55,10 +56,12 @@ function init(): void {
 	const ship = new Ship({ scene });
 	ship.mesh.position.set(0, 51.1, 0);
 
+    const earth = new Earth(scene);
+
     // Handle window resize events
     window.addEventListener('resize', handleWindowResize, false);
 
-    // Kamera controls
+    // Camera controls
     controls = new TrackballControls(camera, renderer.domElement);
     controls.rotateSpeed = 5.0;
     controls.panSpeed = 1.0;
