@@ -6,6 +6,12 @@ import { Ship } from './components/Ship';
 import { Earth } from './components/Earth';
 import { ScrollAnimator } from './components/ScrollAnimator';
 
+import introduction from "./sections/introduction.html?raw";
+import experience from "./sections/experience.html?raw";
+import studies from "./sections/studies.html?raw";
+import projects from "./sections/projects.html?raw";
+import contact from "./sections/contact.html?raw";
+
 let WIDTH: number;
 let HEIGHT: number;
 let aspectRatio: number;
@@ -14,6 +20,25 @@ let renderer: THREE.WebGLRenderer;
 let scene: THREE.Scene;
 let camera: THREE.PerspectiveCamera;
 let controls: TrackballControls;
+
+loadSection("#introduction", introduction);
+loadSection("#experience", experience);
+loadSection("#studies", studies);
+loadSection("#projects", projects);
+loadSection("#contact", contact);
+
+function loadSection(
+    selector: string,
+    content: string
+) {
+    const element = document.querySelector(selector);
+
+    if (!element) {
+        throw new Error(`Element not found: ${selector}`);
+    }
+
+    element.innerHTML = content;
+}
 
 init();
 // Renderer

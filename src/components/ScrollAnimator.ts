@@ -39,6 +39,8 @@ export class ScrollAnimator {
 
         masterTimeline.add(this.getBoosterTimeline(), 0);
         masterTimeline.add(this.getBoosterRotationTimeline(), 0);
+
+        masterTimeline.add(this.getTextTimeline(), 0);
     }
 
     private getCameraTimeline(): gsap.core.Timeline {
@@ -70,6 +72,39 @@ export class ScrollAnimator {
         return tl;
     }
 
+    private getTextTimeline(): gsap.core.Timeline {
+        const tl = gsap.timeline();
+
+        const introduction = document.getElementById('introduction');
+        const experience = document.getElementById('experience');
+        const studies = document.getElementById('studies');
+        const projects = document.getElementById('projects');
+        const contact = document.getElementById('contact');
+
+        tl.to(introduction, { opacity: 1, duration: 0, ease: this.globalEase });
+        tl.to(introduction, { opacity: 0, duration: 10, ease: this.globalEase });
+
+        tl.to({}, { duration: 5 });
+        tl.to(experience, { opacity: 1, duration: 10, ease: this.globalEase });
+        tl.to({}, { duration: 20 });
+        tl.to(experience, { opacity: 0, duration: 10, ease: this.globalEase });
+
+        tl.to({}, { duration: 20 });
+        tl.to(studies, { opacity: 1, duration: 10, ease: this.globalEase });
+        tl.to({}, { duration: 20 });
+        tl.to(studies, { opacity: 0, duration: 10, ease: this.globalEase });
+
+        tl.to({}, { duration: 15 });
+        tl.to(projects, { opacity: 1, duration: 10, ease: this.globalEase });
+        tl.to({}, { duration: 25 });
+        tl.to(projects, { opacity: 0, duration: 10, ease: this.globalEase });
+        
+        tl.to({}, { duration: 65 });
+        tl.to(contact, { opacity: 1, duration: 10, ease: this.globalEase });
+
+        return tl;
+    }
+
     private getShipTimeline(): gsap.core.Timeline {
         const tl = gsap.timeline();
 
@@ -97,10 +132,10 @@ export class ScrollAnimator {
         tl.to(this.shipObj.mesh.rotation, { x: -(Math.PI / 2), duration: 40, ease: this.globalEase });
 
         tl.to({}, { duration: 20 });
-        tl.to(this.shipObj.mesh.rotation, { x: 0, duration: 30, ease: this.globalEase });
-        tl.to(this.shipObj.mesh.rotation, { x: Math.PI / 8, duration: 10, ease: this.globalEase });
+        tl.to(this.shipObj.mesh.rotation, { x: 0, duration: 30, ease: "power1.in" });
+        tl.to(this.shipObj.mesh.rotation, { x: Math.PI / 8, duration: 10, ease: "power1.out" });
         tl.to(this.shipObj.mesh.rotation, { x: -Math.PI / 16, duration: 10, ease: this.globalEase });
-        tl.to(this.shipObj.mesh.rotation, { x: 0, duration: 5, ease: this.globalEase });
+        tl.to(this.shipObj.mesh.rotation, { x: 0, duration: 10, ease: this.globalEase });
         tl.to({}, { duration: 25 });
 
         return tl;
