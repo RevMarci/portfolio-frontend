@@ -89,14 +89,14 @@ export class ScrollAnimator {
         tl.to({}, { duration: 20 });
         tl.to(experience, { opacity: 0, duration: 10, ease: this.globalEase });
 
-        tl.to({}, { duration: 20 });
+        tl.to({}, { duration: 25 });
         tl.to(studies, { opacity: 1, duration: 10, ease: this.globalEase });
         tl.to({}, { duration: 20 });
         tl.to(studies, { opacity: 0, duration: 10, ease: this.globalEase });
 
         tl.to({}, { duration: 15 });
         tl.to(projects, { opacity: 1, duration: 10, ease: this.globalEase });
-        tl.to({}, { duration: 25 });
+        tl.to({}, { duration: 20 });
         tl.to(projects, { opacity: 0, duration: 10, ease: this.globalEase });
         
         tl.to({}, { duration: 65 });

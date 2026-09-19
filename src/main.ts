@@ -1,4 +1,6 @@
-import './style.css'
+import './style/style.css'
+import './style/timeline.css'
+import './style/project.css'
 import * as THREE from 'three';
 import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
 import { Booster } from './components/Booster';
@@ -62,8 +64,8 @@ function init(): void {
     scene = new THREE.Scene();
 
 	// helper
-	const axesHelper = new THREE.AxesHelper( 5 );
-	scene.add( axesHelper );
+	// const axesHelper = new THREE.AxesHelper( 5 );
+	// scene.add( axesHelper );
 
     // Create the camera
     camera = new THREE.PerspectiveCamera(75, aspectRatio, 0.1, 1000);
@@ -73,7 +75,7 @@ function init(): void {
 	const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 	scene.add(ambientLight);
 
-	const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
+	const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
 	directionalLight.position.set(10, 20, 15);
 	scene.add(directionalLight);
 
