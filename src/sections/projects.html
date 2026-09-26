@@ -1,4 +1,64 @@
-<div id="text-1">
-    <h2>My Projects</h2>
-    <p>Here are my projects</p>
+<div>
+    <h1>My Projects</h1>
+
+    <div class="projects-container">
+        <div class="project">
+            <h2>WebLed</h2>
+            <div class="project-content">
+                <div class="stack">
+                    <p>Arduino</p>
+                    <p>C</p>
+                    <p>IoT</p>
+                    <p>html</p>
+                    <p>css</p>
+                    <p>JavaScript</p>
+                    <p>WebSockets</p>
+                </div>
+                <p>Az egyik első nagyobb saját projektem, amelynek központi eleme egy Wi-Fi-képes ESP8266 mikrovezérlő és egy 16×16-os LED-mátrix. A mikrovezérlő egy webes felületet hostol, amelyhez a helyi hálózaton keresztül lehet csatlakozni.</p>
+                <img src="projects/webled.jpg" alt="" />
+                <p>A webes felületen keresztül a LED-mátrix valós időben vezérelhető és rajzolni is lehet rá. A projekt során az ESP8266 programozása mellett a webes vezérlőfelület és a mikrovezérlő, valamint a böngésző közötti kommunikáció megvalósításával is foglalkoztam.</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <h2>Calendar task management</h2>
+            <div class="project-content">
+                <div class="stack">
+                    <p>Node.js</p>
+                    <p>React</p>
+                    <p>Blockchain</p>
+                    <p>REST API</p>
+                    <p>Tailwind</p>
+                    <p>Google OAuth</p>
+                </div>
+                <p>Egy összetettebb, TypeScript alapú (React + Node.js) webalkalmazás, ahol egy felületen elérhető Kanban tábla lapú feladatkezelő és naptár funkciók. Automatizációval rendelkezik, amiben a szinkronizált külső naptárak figyelembevételével megkeresi a szabad időpontokat a határidős feladatoknak.</p>
+                <img src="projects/calendar.png" alt="" />
+                <p>Az elvégzett munka hitelesítését a rendszer egy Solidity nyelven irt contract hitelesíti Polygon blockchain hálózaton.</p>
+                <img src="projects/blockchain.png" alt="" />
+                <p>Clean Code elveket követve épült Express.js és Sequelize ORM használatával, kiegészítve jelszómentes Google OAuth hitelesítéssel, valamint aszinkron, többcsatornás (Discord webhook, e-mail) értesítési rendszerrel.</p>
+                <img src="projects/clean_code.png" alt="" />
+            </div>
+            <div class="project-links">
+                <a class="github" href="https://github.com/RevMarci/CalendarTaskManager" target="_blank">Github</a>
+            </div>
+        </div>
+
+        <div class="project">
+            <h2>Asteroids</h2>
+            <div class="project-content">
+                <div class="stack">
+                    <p>JavaScript</p>
+                    <p>html</p>
+                    <p>css</p>
+                </div>
+                <p>Egy JavaScript és HTML Canvas alapú Asteroids játék, amelyben a játék minden fontos eleme (játékos, lövedékek, aszteroidák) saját osztályokként van megvalósítva.</p>
+                <img src="projects/asteroids.png" alt="" />
+                <p>A projekt során az objektumok mozgását, ütközéseit és dinamikus generálását, illetve eltávolítását kezeltem.</p>
+            </div>
+            <div class="project-links">
+                <a class="github" href="https://github.com/RevMarci/Asteroids" target="_blank">Github</a>
+                <a class="live" href="https://revmarci.github.io/Asteroids/" target="_blank">Live</a>
+            </div>
+        </div>
+    </div>
 </div>

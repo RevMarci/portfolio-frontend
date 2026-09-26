@@ -60,7 +60,7 @@ export class ScrollAnimator {
 
 
         // Ship fall - 40
-        tl.to(this.camera.position, { x:0, y: 210, z: 30, duration: 20, ease: this.globalEase });
+        tl.to(this.camera.position, { x:-2, y: 215, z: 30, duration: 20, ease: this.globalEase });
         tl.to({}, { duration: 40 });
 
         // Ship land - 40

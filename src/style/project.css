@@ -1,25 +1,39 @@
-main {
-    width: 500px;
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .project {
-    margin: 20px;
-    padding-bottom: 26px;
+    width: 25%;
+    max-width: 800px;
+    margin: 0 20px;
     border: 1px solid var(--borderColor);
     border-radius: 10px;
     transition: var(--transitionTime);
+    display: flex;
+    flex-direction: column;
+    height: 55vh;
 }
 
 .project:hover {
     border-color: var(--hoverColor);
 }
 
+#projects h1 {
+    text-align: center;
+}
+
 .project h2 {
     margin: 10px 15px 0;
+    flex-shrink: 0;
 }
 
 .stack {
     display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
     margin: 5px 10px 10px;
 }
 
@@ -39,21 +53,44 @@ main {
 
 .project p {
     margin: 5px 15px 15px;
-    text-align: justify;
+    text-align: left;
     font-size: 15px;
 }
 
 .project a {
     background-color: transparent;
     padding: 8px 10px 10px;
-    margin: 0 0 15px 15px;
     border: 1px solid var(--borderColor);
     border-radius: 5px;
     text-decoration: none;
     transition: var(--transitionTime);
+    flex-shrink: 0; 
 }
 
 .project a:hover {
     border-color: var(--hoverColor);
     color: var(--hoverColor);
+}
+
+.project-links {
+    display: flex;
+    gap: 10px;
+    margin: auto 0 15px 15px;
+}
+
+.project-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding-bottom: 30px;
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.project-content::-webkit-scrollbar {
+    width: 6px;
+}
+.project-content::-webkit-scrollbar-thumb {
+    background-color: var(--borderColor);
+    border-radius: 10px;
 }
