@@ -147,7 +147,8 @@ export class ScrollAnimator {
         tl.to(this.boosterObj.mesh.position, { x: 0, y: 200-this.shipObj.height, z: 0, duration: 30, ease: this.globalEase });
         tl.to({}, { duration: 20 });
 
-        tl.to(this.boosterObj.mesh.position, { x: 0, y: 0, z: 0, duration: 30, ease: this.globalEase });
+        tl.to(this.boosterObj.mesh.position, { x: 80, y: 0, z: 0, duration: 30, ease: this.globalEase });
+        tl.to(this.boosterObj.mesh.position, { x: 0, y: 0, z: 0, duration: 0, ease: this.globalEase });
 
         return tl;
     }
@@ -159,7 +160,7 @@ export class ScrollAnimator {
         tl.to(this.boosterObj.mesh.rotation, { y: Math.PI / 2, duration: 30, ease: this.globalEase });
         tl.to({}, { duration: 10 });
 
-        tl.to(this.boosterObj.mesh.rotation, { x: Math.PI * 2, duration: 40, ease: this.globalEase });
+        tl.to(this.boosterObj.mesh.rotation, { x: Math.PI * 2, duration: 50, ease: this.globalEase });
 
         return tl;
     }
