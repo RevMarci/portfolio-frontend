@@ -67,7 +67,6 @@ export class ScrollAnimator {
         tl.to(this.camera.position, { x:0, y: 100, z: 100, duration: 30, ease: this.globalEase });
         tl.to(this.camera.position, { x:0, y: 50, z: 100, duration: 35, ease: this.globalEase });
         tl.to(this.camera.position, { x:-50, y: 30, z: 100, duration: 30, ease: this.globalEase });
-        tl.to({}, { duration: 20 });
 
         return tl;
     }
@@ -99,7 +98,7 @@ export class ScrollAnimator {
         tl.to({}, { duration: 20 });
         tl.to(projects, { autoAlpha: 0, zIndex: 0, duration: 10, ease: this.globalEase });
         
-        tl.to({}, { duration: 65 });
+        tl.to({}, { duration: 75 });
         tl.to(contact, { autoAlpha: 1, zIndex: 10, duration: 10, ease: this.globalEase });
 
         return tl;
@@ -136,7 +135,6 @@ export class ScrollAnimator {
         tl.to(this.shipObj.mesh.rotation, { x: Math.PI / 8, duration: 10, ease: "power1.out" });
         tl.to(this.shipObj.mesh.rotation, { x: -Math.PI / 16, duration: 10, ease: this.globalEase });
         tl.to(this.shipObj.mesh.rotation, { x: 0, duration: 10, ease: this.globalEase });
-        tl.to({}, { duration: 25 });
 
         return tl;
     }
