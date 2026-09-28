@@ -81,26 +81,26 @@ export class ScrollAnimator {
         const projects = document.getElementById('projects');
         const contact = document.getElementById('contact');
 
-        tl.to(introduction, { opacity: 1, zIndex: 10, duration: 0, ease: this.globalEase });
-        tl.to(introduction, { opacity: 0, zIndex: 0, duration: 10, ease: this.globalEase });
+        tl.to(introduction, { autoAlpha: 1, zIndex: 10, duration: 0, ease: this.globalEase });
+        tl.to(introduction, { autoAlpha: 0, zIndex: 0, duration: 10, ease: this.globalEase });
 
         tl.to({}, { duration: 5 });
-        tl.to(experience, { opacity: 1, zIndex: 10, duration: 10, ease: this.globalEase });
+        tl.to(experience, { autoAlpha: 1, zIndex: 10, duration: 10, ease: this.globalEase });
         tl.to({}, { duration: 20 });
-        tl.to(experience, { opacity: 0, zIndex: 0, duration: 10, ease: this.globalEase });
+        tl.to(experience, { autoAlpha: 0, zIndex: 0, duration: 10, ease: this.globalEase });
 
         tl.to({}, { duration: 25 });
-        tl.to(studies, { opacity: 1, zIndex: 10, duration: 10, ease: this.globalEase });
+        tl.to(studies, { autoAlpha: 1, zIndex: 10, duration: 10, ease: this.globalEase });
         tl.to({}, { duration: 20 });
-        tl.to(studies, { opacity: 0, zIndex: 0, duration: 10, ease: this.globalEase });
+        tl.to(studies, { autoAlpha: 0, zIndex: 0, duration: 10, ease: this.globalEase });
 
         tl.to({}, { duration: 15 });
-        tl.to(projects, { opacity: 1, zIndex: 10, duration: 10, ease: this.globalEase });
+        tl.to(projects, { autoAlpha: 1, zIndex: 10, duration: 10, ease: this.globalEase });
         tl.to({}, { duration: 20 });
-        tl.to(projects, { opacity: 0, zIndex: 0, duration: 10, ease: this.globalEase });
+        tl.to(projects, { autoAlpha: 0, zIndex: 0, duration: 10, ease: this.globalEase });
         
         tl.to({}, { duration: 65 });
-        tl.to(contact, { opacity: 1, zIndex: 10, duration: 10, ease: this.globalEase });
+        tl.to(contact, { autoAlpha: 1, zIndex: 10, duration: 10, ease: this.globalEase });
 
         return tl;
     }
