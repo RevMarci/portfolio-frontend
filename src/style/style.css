@@ -175,3 +175,35 @@ h1 + h2.ps {
 h1:has(+ h2.ps) {
     margin-bottom: 0;
 }
+
+#mobile-warning {
+    display: none;
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #050505;
+    color: #ffffff;
+    z-index: 9999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+#mobile-warning h2 {
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    #mobile-warning {
+        display: flex;
+    }
+
+    canvas, main, .scroll-container {
+        display: none !important;
+    }
+}
