@@ -51,8 +51,4 @@ export class Earth {
             }
         );
     }
-    
-    public update(deltaTime: number) {
-        
-    }
 }

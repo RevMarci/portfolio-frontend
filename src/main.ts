@@ -21,7 +21,7 @@ let aspectRatio: number;
 let renderer: THREE.WebGLRenderer;
 let scene: THREE.Scene;
 let camera: THREE.PerspectiveCamera;
-let controls: TrackballControls;
+// let controls: TrackballControls;
 
 loadSection("#introduction", introduction);
 loadSection("#experience", experience);
@@ -84,9 +84,9 @@ function init(): void {
 	const ship = new Ship({ scene });
 	ship.mesh.position.set(0, 51.1, 0);
 
-    const earth = new Earth(scene);
+    new Earth(scene);
 
-    const scrollAnimator = new ScrollAnimator(camera, booster, ship);
+    new ScrollAnimator(camera, booster, ship);
 
     // Handle window resize events
     window.addEventListener('resize', handleWindowResize, false);
