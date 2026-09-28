@@ -2,7 +2,7 @@ import './style/style.css'
 import './style/timeline.css'
 import './style/project.css'
 import * as THREE from 'three';
-import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
+// import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
 import { Booster } from './components/Booster';
 import { Ship } from './components/Ship';
 import { Earth } from './components/Earth';
