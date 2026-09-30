@@ -14,6 +14,8 @@ import studies from "./sections/studies.html?raw";
 import projects from "./sections/projects.html?raw";
 import contact from "./sections/contact.html?raw";
 
+import { wakeUp } from './components/backendCall';
+
 let WIDTH: number;
 let HEIGHT: number;
 let aspectRatio: number;
@@ -28,6 +30,9 @@ loadSection("#experience", experience);
 loadSection("#studies", studies);
 loadSection("#projects", projects);
 loadSection("#contact", contact);
+
+// Wake up the backend server
+wakeUp();
 
 function loadSection(
     selector: string,

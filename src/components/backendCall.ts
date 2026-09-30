@@ -1,8 +1,5 @@
 const baseUrl: string = 'https://portfolio-backend-k1ed.onrender.com';
 
-// Run on page loading to wake up the backend
-wakeUp();
-
 export async function wakeUp(): Promise<void> {
     console.log('Waking up the backend...');
 
