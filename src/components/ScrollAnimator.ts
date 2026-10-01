@@ -80,26 +80,28 @@ export class ScrollAnimator {
         const projects = document.getElementById('projects');
         const contact = document.getElementById('contact');
 
-        tl.to(introduction, { autoAlpha: 1, zIndex: 10, duration: 0, ease: this.globalEase });
-        tl.to(introduction, { autoAlpha: 0, zIndex: 0, duration: 10, ease: this.globalEase });
+        gsap.set([introduction, experience, studies, projects, contact], {autoAlpha: 0, pointerEvents: "none" });
+
+        tl.to(introduction, { autoAlpha: 1, zIndex: 10, pointerEvents: "auto", duration: 0, ease: this.globalEase });
+        tl.to(introduction, { autoAlpha: 0, zIndex: 0, pointerEvents: "none", duration: 10, ease: this.globalEase });
 
         tl.to({}, { duration: 5 });
-        tl.to(experience, { autoAlpha: 1, zIndex: 10, duration: 10, ease: this.globalEase });
+        tl.to(experience, { autoAlpha: 1, zIndex: 10, pointerEvents: "auto", duration: 10, ease: this.globalEase });
         tl.to({}, { duration: 20 });
-        tl.to(experience, { autoAlpha: 0, zIndex: 0, duration: 10, ease: this.globalEase });
+        tl.to(experience, { autoAlpha: 0, zIndex: 0, pointerEvents: "none", duration: 10, ease: this.globalEase });
 
         tl.to({}, { duration: 25 });
-        tl.to(studies, { autoAlpha: 1, zIndex: 10, duration: 10, ease: this.globalEase });
+        tl.to(studies, { autoAlpha: 1, zIndex: 10, pointerEvents: "auto", duration: 10, ease: this.globalEase });
         tl.to({}, { duration: 20 });
-        tl.to(studies, { autoAlpha: 0, zIndex: 0, duration: 10, ease: this.globalEase });
+        tl.to(studies, { autoAlpha: 0, zIndex: 0, pointerEvents: "none", duration: 10, ease: this.globalEase });
 
         tl.to({}, { duration: 15 });
-        tl.to(projects, { autoAlpha: 1, zIndex: 10, duration: 10, ease: this.globalEase });
+        tl.to(projects, { autoAlpha: 1, zIndex: 10, pointerEvents: "auto", duration: 10, ease: this.globalEase });
         tl.to({}, { duration: 20 });
-        tl.to(projects, { autoAlpha: 0, zIndex: 0, duration: 10, ease: this.globalEase });
+        tl.to(projects, { autoAlpha: 0, zIndex: 0, pointerEvents: "none", duration: 10, ease: this.globalEase });
         
         tl.to({}, { duration: 75 });
-        tl.to(contact, { autoAlpha: 1, zIndex: 10, duration: 10, ease: this.globalEase });
+        tl.to(contact, { autoAlpha: 1, zIndex: 10, pointerEvents: "auto", duration: 10, ease: this.globalEase });
 
         return tl;
     }
