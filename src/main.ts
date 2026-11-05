@@ -63,7 +63,14 @@ function init(): void {
     renderer.setSize(WIDTH, HEIGHT);
     renderer.setClearColor(0x000000);
     renderer.shadowMap.enabled = true;
+    renderer.domElement.classList.add('canvas-hidden');
     document.body.appendChild(renderer.domElement);
+
+    // Show the canvas when all assets are loaded
+    THREE.DefaultLoadingManager.onLoad = function ( ) {
+        renderer.domElement.classList.remove('canvas-hidden');
+        renderer.domElement.classList.add('canvas-loaded');
+    };
 
     // Create the scene
     scene = new THREE.Scene();

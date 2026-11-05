@@ -29,6 +29,15 @@ canvas {
     top: 0;
     left: 0;
     z-index: -1;
+    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.canvas-hidden {
+    transform: translateY(100vh);
+}
+
+.canvas-loaded {
+    transform: translateY(0);
 }
 
 #ui-layer {
