@@ -50,6 +50,46 @@ canvas {
     pointer-events: none;
 }
 
+#bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+#progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1px;
+    background-color: var(--hoverColor);
+    width: 0%;
+    transition: width 0.1s ease-out;
+}
+
+#nav-labels {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 10px;
+    color: #aaaaaa;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#nav-labels span {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#nav-labels span:hover {
+    color: var(--hoverColor);
+}
+
 .right {
     position: absolute;
     width: 50%;

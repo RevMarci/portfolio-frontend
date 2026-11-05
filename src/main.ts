@@ -25,6 +25,9 @@ let scene: THREE.Scene;
 let camera: THREE.PerspectiveCamera;
 // let controls: TrackballControls;
 
+const SECTIONS = ['introduction', 'experience', 'studies', 'projects', 'contact'];
+const SCROLL_POINTS = [0.00, 0.10, 0.35, 0.58, 1.00 ];
+
 loadSection("#introduction", introduction);
 loadSection("#experience", experience);
 loadSection("#studies", studies);
@@ -103,6 +106,10 @@ function init(): void {
     // Handle window resize events
     window.addEventListener('resize', handleWindowResize, false);
 
+    window.addEventListener('scroll', updateProgressBar, false);
+
+    setupNavigationClicks();
+
     // Camera controls
     //controls = new TrackballControls(camera, renderer.domElement);
     //controls.rotateSpeed = 5.0;
@@ -120,6 +127,70 @@ function handleWindowResize(): void {
     camera.updateProjectionMatrix();
 
     render();
+}
+
+function updateProgressBar(): void {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const currentScroll = maxScroll > 0 ? scrollTop / maxScroll : 0;
+
+    const navLabels = document.getElementById('nav-labels');
+    const containerWidth = navLabels ? navLabels.offsetWidth : window.innerWidth;
+    
+    const widthPoints = SECTIONS.map((id, index) => {
+        if (index === 0) return 0; 
+
+        if (index === SECTIONS.length - 1) return 100;
+
+        const label = document.querySelector(`span[data-target="${id}"]`) as HTMLElement;
+        if (!label) return 0;
+        const center = label.offsetLeft + (label.offsetWidth / 2); 
+        return (center / containerWidth) * 100;
+    });
+
+    let currentWidth = 0;
+    
+    let startIndex = 0;
+    for (let i = 0; i < SCROLL_POINTS.length; i++) {
+        if (currentScroll >= SCROLL_POINTS[i]) {
+            startIndex = i;
+        }
+    }
+
+    if (startIndex >= SCROLL_POINTS.length - 1) {
+        currentWidth = widthPoints[widthPoints.length - 1];
+    } else {
+        const startScroll = SCROLL_POINTS[startIndex];
+        const endScroll = SCROLL_POINTS[startIndex + 1];
+        const startWidth = widthPoints[startIndex];
+        const endWidth = widthPoints[startIndex + 1];
+
+        const ratio = (currentScroll - startScroll) / (endScroll - startScroll);
+        
+        currentWidth = startWidth + (ratio * (endWidth - startWidth));
+    }
+
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+        progressBar.style.width = `${currentWidth}%`;
+    }
+}
+
+function setupNavigationClicks(): void {
+    const labels = document.querySelectorAll('#nav-labels span');
+    
+    labels.forEach((label, index) => {
+        label.addEventListener('click', () => {
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            
+            const targetScrollY = maxScroll * SCROLL_POINTS[index];
+            
+            window.scrollTo({
+                top: targetScrollY,
+                behavior: 'smooth'
+            });
+        });
+    });
 }
 
 function render(): void {
